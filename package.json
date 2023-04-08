@@ -1,0 +1,41 @@
+{
+  "name": "case-estante-virtual",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ./build/index.js",
+    "dev": "ts-node-dev ./src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FluffyThread/case-estante-virtual.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FluffyThread/case-estante-virtual/issues"
+  },
+  "homepage": "https://github.com/FluffyThread/case-estante-virtual#readme",
+  "dependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/node": "^18.15.11",
+    "@types/sqlite3": "^3.1.8",
+    "@types/uuid": "^9.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "knex": "^2.4.2",
+    "mysql": "^2.18.1",
+    "sqlite3": "^5.1.6",
+    "typescript": "^5.0.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/knex": "^0.16.1",
+    "ts-node-dev": "^2.0.0"
+  }
+}

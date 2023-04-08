@@ -30,7 +30,8 @@
     "knex": "^2.4.2",
     "mysql": "^2.18.1",
     "sqlite3": "^5.1.6",
-    "typescript": "^5.0.3"
+    "typescript": "^5.0.3",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.13",

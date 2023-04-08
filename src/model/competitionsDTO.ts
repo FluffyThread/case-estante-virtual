@@ -6,14 +6,6 @@ export enum competitionType {
 export interface competitionDTO {
     id:string,
     name:string,
-    type:competitionType,
-    finished:boolean
+    type:competitionType
 }
 
-export interface scoreDTO {
-    id:string,
-    competitionId:string,
-    name:string,
-    value:number,
-    unit:string
-}

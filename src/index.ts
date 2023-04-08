@@ -1,8 +1,9 @@
-import express from "express"
+import express, { Request, Response } from "express"
 
 import { db } from "./services/db"
 
 import cors from 'cors'
+import { competitionRouter } from "./routes/competitionRouter"
 
 const app = express()
 
@@ -24,5 +25,19 @@ try {
 } catch (error:any) {
     console.log(error.message);
 }
+
+app.use("/competition", competitionRouter)
+
+app.get("/competition/getall", (req: Request, res: Response) => {
+     db.all('SELECT * FROM competitions', (err, rows) => {
+        if (err) {
+          console.log(err.message);
+        } else {
+          res.send(rows)
+          console.log(rows);
+        }
+      });
+  });
+  
 
 

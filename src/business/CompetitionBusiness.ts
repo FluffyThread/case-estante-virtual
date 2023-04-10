@@ -9,7 +9,12 @@ const idGenerator = new IdGenerator()
 
 export class CompetitionBusiness {
 
+    private competitionDatabase: CompetitionDatabase;
 
+    constructor(competitionDatabase?: CompetitionDatabase) {
+        this.competitionDatabase = competitionDatabase || new CompetitionDatabase();
+      }
+      
     insertCompetition = async(name:string, type:string) => {
         let typeInLower
         try {
@@ -28,7 +33,8 @@ export class CompetitionBusiness {
                 name,
                 type:typeInLower
             }
-            await competitionDatabase.insertCompetition(input)
+            await this.competitionDatabase.insertCompetition(input)
+            return true
         } catch (error:any) {
             throw new Error(error.message);
         }
@@ -36,7 +42,7 @@ export class CompetitionBusiness {
 
     getAllData = async() => {
         try {
-            let rows = await competitionDatabase.getAllData("competitions")
+            let rows = await this.competitionDatabase.getAllData("competitions")
             if (rows.length < 1) {
                 throw new Error("No competitions was found :/");    
             }
@@ -52,12 +58,13 @@ export class CompetitionBusiness {
           if (!id) {
             throw new Error("ID must be passed as parameter");
           }
-          const competition:any = await competitionDatabase.getById(id);
+          const competition:any = await this.competitionDatabase.getById(id);
           console.log(competition); 
           if (competition.length < 1) {
             throw new Error("Competition does not exist");
           }
-          await competitionDatabase.finishCompetition(id);
+          await this.competitionDatabase.finishCompetition(id);
+
         } catch (error:any) {
           throw new Error(error.message);
         }
@@ -65,11 +72,11 @@ export class CompetitionBusiness {
 
       deleteCompetitionById = async (id:string):Promise<void> => {
         try {
-            const competition:any = await competitionDatabase.getById(id)
+            const competition:any = await this.competitionDatabase.getById(id)
             if (competition.length < 1) {
                 throw new Error("The competition does not exist");     
             }
-            await competitionDatabase.deleteCompetitionById(id)
+            await this.competitionDatabase.deleteCompetitionById(id)
         } catch (error:any) {
             throw new Error(error.message);
             

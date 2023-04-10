@@ -41,4 +41,17 @@ export class ScoreDatabase {
             });
         });
     };
+
+    getAllScoreFromCompetition = async (foreignKey: string): Promise<any[]> => {
+        const query = 'SELECT * FROM score WHERE competition_id = ?';
+        return new Promise((resolve, reject) => {
+          db.all(query, [foreignKey], (err, rows) => {
+            if (err) {
+              reject(err);
+            } else {
+              resolve(rows);
+            }
+          });
+        });
+      };
 }

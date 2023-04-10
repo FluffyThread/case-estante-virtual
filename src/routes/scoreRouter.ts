@@ -9,3 +9,6 @@ scoreRouter.post("/create", scoreController.registerNewScore)
 
 // ENDPOINT PARA RETORNAR DADOS DO RESULTADO DE TODOS OS ATLETAS
 scoreRouter.get("/getall", scoreController.getAllData)
+
+//ENDPOINT PARA RETORNAR O RANKING DE DETERMINADA COMPETIÇÃO
+scoreRouter.get("/rank", scoreController.getAllScoreFromCompetition)

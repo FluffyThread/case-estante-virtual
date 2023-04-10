@@ -23,10 +23,19 @@ export class ScoreController {
         try {
             let result = await scoreBusiness.getAllData()
             res.json(result)
-            console.log(result);
 
         } catch (error: any) {
             res.send(error.message)
         }
     }
+
+    getAllScoreFromCompetition = async (req: Request, res: Response) => {
+        try {
+          const foreignKey  = req.query.id as string;
+          const values = await scoreBusiness.getAllScoreFromCompetition(foreignKey);
+          res.status(200).json({Ranking: values });
+        } catch (err:any) {
+          res.status(500).json({ error: err.message });
+        }
+      };
 }

@@ -12,3 +12,8 @@ export type Score = {
     value:number,
     unit:string
 }
+
+export interface CompetitionRanking {
+    name: any;
+    ranking: any[];
+  }

@@ -1,7 +1,7 @@
 import { CompetitionDatabase } from "../data/CompetitionDatabase";
 import { ScoreDatabase } from "../data/ScoreDatabase";
-import { Score, scoreDTO } from "../model/scoreDTO";
-import { isUnitValid } from "../services/functions";
+import { CompetitionRanking, Score, scoreDTO } from "../model/scoreDTO";
+import { getRanking, isUnitValid } from "../services/functions";
 import { IdGenerator } from "../services/idGenerator";
 
 
@@ -18,11 +18,14 @@ export class ScoreBusiness {
             if (!isUnitValid(unit)) {
                 throw new Error("Unit field can only accept two arguments: 's' or 'm'");   
             }
-            const competition:any = await competitionDatabase.getById(competition_id)
+            const competition:any = await competitionDatabase.getById(competition_id)           
 
             const count:any = await scoreDatabase.checkNameOccurrence(athlete)
-            console.log(count);
             
+            if (competition[0].finished === 1) {
+                throw new Error("The competition has been finished");
+            }
+
             if (count === true) {
                 throw new Error("The athlete has made all attempts.");  
             }
@@ -59,5 +62,21 @@ export class ScoreBusiness {
             
         }
     }
+
+    getAllScoreFromCompetition = async (competitionId: string): Promise<CompetitionRanking> => {
+        try {
+          const scores = await scoreDatabase.getAllScoreFromCompetition(competitionId);
+          const competition:any = await competitionDatabase.getById(competitionId);
+      
+          const competitionName = { name: competition };
+      
+          const sortOrder = competition[0].type === "100m" ? "asc" : "desc";
+          const ranking = getRanking(scores, sortOrder);
+      
+          return { ...competitionName, ranking };
+        } catch (error:any) {
+          throw new Error(error.message);
+        }
+      };
 }
 

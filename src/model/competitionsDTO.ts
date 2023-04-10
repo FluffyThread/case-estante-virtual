@@ -1,19 +1,18 @@
 export enum competitionType {
-    HUNDRED = "100m rasos",
-    DARTS = "lançamento de dardos"
+    HUNDRED = "100m",
+    DARTS = "dardos"
 }
 
 export interface competitionDTO {
     id:string,
     name:string,
-    type:competitionType,
-    finished:boolean
+    type:string
 }
 
-export interface scoreDTO {
+export type Competition = {
     id:string,
-    competitionId:string,
     name:string,
-    value:number,
-    unit:string
+    type:competitionType,
+    finished:number
 }
+

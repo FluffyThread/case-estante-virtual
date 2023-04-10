@@ -55,5 +55,26 @@ export class CompetitionDatabase {
           throw new Error(error.message);
         }
       };
+
+      deleteCompetitionById = async (id: string): Promise<void> => {
+        try {
+          await new Promise<void>((resolve, reject) => {
+            db.run(
+              `DELETE FROM competitions WHERE id = ?`,
+              [id],
+              (err) => {
+                if (err) {
+                  reject(err);
+                } else {
+                  resolve();
+                }
+              }
+            );
+          });
+        } catch (error:any) {
+          throw new Error(error.message);
+          
+        }
+      };
       
 }

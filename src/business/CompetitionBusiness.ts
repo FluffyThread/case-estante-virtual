@@ -37,8 +37,7 @@ export class CompetitionBusiness {
     getAllData = async() => {
         try {
             let rows = await competitionDatabase.getAllData("competitions")
-            if (rows == null || rows == undefined) {
-                console.log(rows);  
+            if (rows.length < 1) {
                 throw new Error("No competitions was found :/");    
             }
             return rows
@@ -63,4 +62,17 @@ export class CompetitionBusiness {
           throw new Error(error.message);
         }
       };
+
+      deleteCompetitionById = async (id:string):Promise<void> => {
+        try {
+            const competition:any = await competitionDatabase.getById(id)
+            if (competition.length < 1) {
+                throw new Error("The competition does not exist");     
+            }
+            await competitionDatabase.deleteCompetitionById(id)
+        } catch (error:any) {
+            throw new Error(error.message);
+            
+        }
+      }
 }

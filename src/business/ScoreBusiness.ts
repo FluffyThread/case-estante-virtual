@@ -67,6 +67,10 @@ export class ScoreBusiness {
         try {
           const scores = await scoreDatabase.getAllScoreFromCompetition(competitionId);
           const competition:any = await competitionDatabase.getById(competitionId);
+
+          if (competition.length < 1) {
+            throw new Error("No data was found"); 
+          }
       
           const competitionName = { name: competition };
       

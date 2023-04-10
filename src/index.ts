@@ -5,6 +5,7 @@ import { db } from "./services/db"
 import cors from 'cors'
 
 import { competitionRouter } from "./routes/competitionRouter"
+
 import { scoreRouter } from "./routes/scoreRouter"
 
 const app = express()

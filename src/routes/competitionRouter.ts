@@ -12,3 +12,6 @@ competitionRouter.get("/getall", competitionController.getAllData)
 
 // ENDPOINT PARA FINALIZAR UMA COMPETIÇÃO
 competitionRouter.put("/end", competitionController.finishCompetition)
+
+// ENDPOINT PARA DELETAR UMA COMPETIÇÃO
+competitionRouter.delete("/delete", competitionController.deleteCompetitionById)

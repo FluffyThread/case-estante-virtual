@@ -56,7 +56,7 @@ export class CompetitionBusiness {
     finishCompetition = async (id: string) => {
         try {
           if (!id) {
-            throw new Error("ID must be passed as parameter");
+            throw new Error("ID must be passed as query");
           }
           const competition:any = await this.competitionDatabase.getById(id);
           console.log(competition); 
@@ -64,19 +64,21 @@ export class CompetitionBusiness {
             throw new Error("Competition does not exist");
           }
           await this.competitionDatabase.finishCompetition(id);
+          return true
 
         } catch (error:any) {
           throw new Error(error.message);
         }
       };
 
-      deleteCompetitionById = async (id:string):Promise<void> => {
+      deleteCompetitionById = async (id:string):Promise<boolean> => {
         try {
             const competition:any = await this.competitionDatabase.getById(id)
             if (competition.length < 1) {
                 throw new Error("The competition does not exist");     
             }
             await this.competitionDatabase.deleteCompetitionById(id)
+            return true
         } catch (error:any) {
             throw new Error(error.message);
             

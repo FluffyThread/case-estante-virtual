@@ -54,4 +54,8 @@ export class ScoreDatabase {
           });
         });
       };
+
+    clearTable = async() => {
+        await db.run(`DELETE FROM score`)
+    }
 }

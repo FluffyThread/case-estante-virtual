@@ -76,5 +76,9 @@ export class CompetitionDatabase {
           
         }
       };
+
+      clearTable = async() => {
+        await db.run(`DELETE FROM competitions`)
+    }
       
 }

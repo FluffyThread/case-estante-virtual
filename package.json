@@ -6,7 +6,8 @@
   "scripts": {
     "start": "tsc && node ./build/index.js",
     "dev": "ts-node-dev ./src/index.ts",
-    "test": "jest"
+    "test1": "jest competitionBusiness.test.ts",
+    "test2": "jest scoreBusiness.test.ts"
   },
   "repository": {
     "type": "git",

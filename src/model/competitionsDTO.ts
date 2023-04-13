@@ -1,7 +1,4 @@
-export enum competitionType {
-    HUNDRED = "100m",
-    DARTS = "dardos"
-}
+
 
 export interface competitionDTO {
     id:string,
@@ -12,7 +9,7 @@ export interface competitionDTO {
 export type Competition = {
     id:string,
     name:string,
-    type:competitionType,
+    type:string,
     finished:number
 }
 

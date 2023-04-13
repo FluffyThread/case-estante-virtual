@@ -51,7 +51,7 @@ Ou
 
 ## Testes 🚨
 
-O código conta com testes realizados em JEST. Para rodas os testes digite o script no terminal:
+O código conta com testes realizados em JEST. Para rodar os testes digite o script no terminal:
 
  1. Para testes na camada CompetitionBusiness:
  

@@ -52,8 +52,7 @@ export class ScoreBusiness {
     getAllData = async() => {
         try {
             let rows = await scoreDatabase.getAllData("score")
-            if (rows == null || rows == undefined) {
-                console.log(rows);  
+            if (rows == null || rows == undefined || rows.length < 1) { 
                 throw new Error("No score was found :/");    
             }
             return rows
@@ -67,11 +66,17 @@ export class ScoreBusiness {
         try {
           const scores = await scoreDatabase.getAllScoreFromCompetition(competitionId);
           const competition:any = await competitionDatabase.getById(competitionId);
+
+          if (competition.length < 1) {
+            throw new Error("No data was found"); 
+          }
       
           const competitionName = { name: competition };
       
           const sortOrder = competition[0].type === "100m" ? "asc" : "desc";
           const ranking = getRanking(scores, sortOrder);
+          console.log({...competitionName, ranking});
+          
       
           return { ...competitionName, ranking };
         } catch (error:any) {

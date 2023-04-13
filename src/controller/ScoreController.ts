@@ -10,7 +10,7 @@ export class ScoreController {
         try {
             const { competition_id, athlete, value, unit } = req.body
             await scoreBusiness.registerScore(competition_id, athlete, value, unit)
-            res.status(201).send("Score succesfuly registered")
+            res.status(201).send("Score succesfully registered!")
         } catch (error: any) {
             if (error.message === "Competition does not exist") {
                 res.status(404).json({ error: error.message });

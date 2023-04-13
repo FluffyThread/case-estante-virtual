@@ -40,4 +40,15 @@ export class CompetitionController {
       }
     }
   };
+
+  deleteCompetitionById = async(req:Request, res:Response):Promise<void> => {
+    const id = req.query.id as string;
+    try {
+      await competitionBusiness.deleteCompetitionById(id);
+      res.send("Competition was deleted succesfully!");
+    } catch (error:any) {
+      res.status(500).json({ error: error.message });
+    }
+  }
+
 }

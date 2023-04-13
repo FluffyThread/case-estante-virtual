@@ -46,6 +46,7 @@ Ou
  - Typescript
  - Jest (para testes unitários)
  - Express
+ - Git
  - SQLite (Para armazenamento de dados em memória)
 
 ## Testes 🚨
@@ -57,7 +58,7 @@ O código conta com testes realizados em JEST. Para rodas os testes digite o scr
 
 > `npm run test1`
 
- 2. Para teste na camada ScoreBusiness
+ 2. Para testes na camada ScoreBusiness
  
  
 

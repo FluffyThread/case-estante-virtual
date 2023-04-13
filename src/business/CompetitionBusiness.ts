@@ -1,10 +1,8 @@
 import { CompetitionDatabase } from "../data/CompetitionDatabase";
-import { competitionDTO, competitionType } from "../model/competitionsDTO";
+import { competitionDTO } from "../model/competitionsDTO";
 import { isValidInput, lowerCase } from "../services/functions";
 import { IdGenerator } from "../services/idGenerator";
 
-
-const competitionDatabase = new CompetitionDatabase()
 const idGenerator = new IdGenerator()
 
 export class CompetitionBusiness {
@@ -59,7 +57,7 @@ export class CompetitionBusiness {
             throw new Error("ID must be passed as query");
           }
           const competition:any = await this.competitionDatabase.getById(id);
-          console.log(competition); 
+
           if (competition.length < 1) {
             throw new Error("Competition does not exist");
           }

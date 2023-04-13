@@ -1,6 +1,5 @@
 import { closeDB, startDB } from "../src/services/functions";
 import { CompetitionDatabase } from "../src/data/CompetitionDatabase";
-import { competitionDTO } from "../src/model/competitionsDTO";
 import { ScoreDatabase } from "../src/data/ScoreDatabase";
 import { ScoreBusiness } from "../src/business/ScoreBusiness";
 import { scoreDTO } from "../src/model/scoreDTO";

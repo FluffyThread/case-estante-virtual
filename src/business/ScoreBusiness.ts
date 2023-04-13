@@ -71,13 +71,11 @@ export class ScoreBusiness {
             throw new Error("No data was found"); 
           }
       
-          const competitionName = { name: competition };
+          const competitionName:any = { competitionData: competition };
       
           const sortOrder = competition[0].type === "100m" ? "asc" : "desc";
           const ranking = getRanking(scores, sortOrder);
-          console.log({...competitionName, ranking});
           
-      
           return { ...competitionName, ranking };
         } catch (error:any) {
           throw new Error(error.message);

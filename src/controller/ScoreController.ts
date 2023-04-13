@@ -33,7 +33,7 @@ export class ScoreController {
         try {
           const foreignKey  = req.query.id as string;
           const values = await scoreBusiness.getAllScoreFromCompetition(foreignKey);
-          res.status(200).json({Ranking: values });
+          res.status(200).json({ values });
         } catch (err:any) {
           res.status(500).json({ error: err.message });
         }

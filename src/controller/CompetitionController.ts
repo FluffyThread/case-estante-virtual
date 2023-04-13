@@ -20,7 +20,6 @@ export class CompetitionController {
     try {
       let result = await competitionBusiness.getAllData()
       res.json(result)
-      console.log(result);
 
     } catch (error: any) {
       res.send(error.message)

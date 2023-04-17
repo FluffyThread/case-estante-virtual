@@ -1,6 +1,6 @@
 # API Jogos Olímpicos
 
-API REST em TypeScript para gerenciamento de competições e resultados de Jogos Olímpicos. A API é capaz de criar competições, cadastrar resultados e exibir o ranking da competição.
+API REST em TypeScript para gerenciamento de competições e resultados dos Jogos Olímpicos referente ao case da [Estante Virtual](https://github.com/estantevirtual/teste_ev). Através dessa API, é possível criar competições, cadastrar resultados e exibir o ranking da competição, permitindo uma gestão eficiente dos resultados dos jogos.
 
 ### Instalação
 
@@ -66,6 +66,10 @@ O código conta com testes realizados em JEST. Para rodar os testes digite o scr
 
 ## Considerações finais
 
-Este projeto é uma API REST em TypeScript para gerenciamento de competições e resultados de Jogos Olímpicos feita a partir da referência ao case da [EstanteVirtual](https://github.com/estantevirtual/teste_ev). A arquitetura de software em camadas utilizada no projeto facilita a manutenção e compreensão do código. Para executar o projeto, é necessário seguir os passos descritos acima.
+A API foi desenvolvida utilizando TypeScript, uma linguagem que permite uma escrita mais segura e fácil manutenção do código. Além disso, utiliza o banco de dados SQLite, permitindo o armazenamento dos dados diretamente na memória, sem a necessidade de configurar um servidor de banco de dados separado.
+
+Com esta API, é possível criar competições e cadastrar resultados, informando a competição, atleta, valor e unidade de medida, de acordo com as regras específicas de cada modalidade. Também é possível visualizar o ranking parcial ou final da competição, com a posição final de cada atleta.
+
+A API foi desenvolvida seguindo as melhores práticas de arquitetura de software, com o objetivo de ser fácil de usar e fácil de integrar em outros projetos. Todos os endpoints estão documentados, permitindo uma fácil integração com outras aplicações.
 
  

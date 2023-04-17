@@ -32,7 +32,7 @@ export class CompetitionBusiness {
                 type:typeInLower
             }
             await this.competitionDatabase.insertCompetition(input)
-            return true
+            return {status: true, id:id}
         } catch (error:any) {
             throw new Error(error.message);
         }

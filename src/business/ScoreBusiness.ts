@@ -18,16 +18,34 @@ export class ScoreBusiness {
             if (!isUnitValid(unit)) {
                 throw new Error("Unit field can only accept two arguments: 's' or 'm'");   
             }
-            const competition:any = await competitionDatabase.getById(competition_id)           
+            const competition:any = await competitionDatabase.getById(competition_id)  
+            console.log(competition);
+                     
 
             const count:any = await scoreDatabase.checkNameOccurrence(athlete)
+
+            const countMeters:any = await scoreDatabase.checkNameOccurrence100m(athlete)
             
             if (competition[0].finished === 1) {
                 throw new Error("The competition has been finished");
             }
 
-            if (count === true) {
-                throw new Error("The athlete has made all attempts.");  
+            console.log(competition[0].type);
+            
+            console.log(count);
+            console.log(countMeters);
+            
+            
+            if (competition[0].type === "dardos") {
+                if (count) {
+                    throw new Error("The athlete has made all attempts.");  
+                }    
+            }
+
+            if (competition[0].type === "100m") {
+                if (countMeters) {
+                    throw new Error("The athlete can only make one attempt");   
+                }
             }
             
             if (competition.length < 1) {

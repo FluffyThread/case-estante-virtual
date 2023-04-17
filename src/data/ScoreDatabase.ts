@@ -33,7 +33,27 @@ export class ScoreDatabase {
                     console.error(err.message);
                     reject(err);
                 }
+                console.log(row.count);
+                
                 if (row.count >= 3) {
+                    resolve(true);
+                } else {
+                    resolve(false);
+                }
+            });
+        });
+    };
+
+    checkNameOccurrence100m = (name: string) => {
+        return new Promise((resolve, reject) => {
+            const sql = `SELECT COUNT(*) AS count FROM score WHERE athlete = ?`;
+            db.get(sql, [name], (err:any, row:any) => {
+                if (err) {
+                    console.error(err.message);
+                    reject(err);
+                }
+                
+                if (row.count > 0) {
                     resolve(true);
                 } else {
                     resolve(false);

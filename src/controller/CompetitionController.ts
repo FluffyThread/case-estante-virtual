@@ -8,8 +8,8 @@ export class CompetitionController {
   insertCompetition = async (req: Request, res: Response) => {
     try {
       const { name, type } = req.body
-      await competitionBusiness.insertCompetition(name, type)
-      res.send("Competition created succesfully!")
+      let response = await competitionBusiness.insertCompetition(name, type)
+      res.send(response)
     }
     catch (error: any) {
       res.send(error.message);
